@@ -1,0 +1,39 @@
+<!doctype html>
+<html>
+
+  <script src="../dist/dash.all.debug.js"></script>
+
+  <script>
+
+    function startVideo(mpd) {
+
+      var video, context, player;
+
+      video = document.querySelector('video');
+
+      // context = new Dash.di.DashContext();
+      player = dashjs.MediaPlayer().create();
+      player.initialize(document.querySelector("video"), mpd, true);
+      // player = new MediaPlayer(context);
+
+      // player.startup();
+
+      player.attachView(video);
+
+      player.setAutoPlay(true);
+
+      // player.attachSource(mpd);;
+
+    }
+
+  </script>
+
+  <!-- see note below about manifest URLs -->
+
+  <body onload="startVideo('http://210.94.185.47/test/test.mpd');">
+
+    <video controls></video>
+
+  </body>
+
+</html>
